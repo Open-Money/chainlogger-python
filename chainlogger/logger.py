@@ -19,8 +19,6 @@ class Logger(Contract):
 
         set_salt(string)
 
-        get_account()
-
         register_vendor()
 
         register_project()
@@ -76,14 +74,6 @@ class Logger(Contract):
         """
         self.salt = salt
 
-    def get_account(self):
-        """
-        Gets the account.
-        Returns:
-            value (object): account instance
-        """
-        return self.account
-
     def register_vendor(self):
         """
         Calls the registerVendor method on the omChain
@@ -95,8 +85,7 @@ class Logger(Contract):
         parameters = {
             'from': self.account,
             'gasPrice': self.gas_price,
-            'gas': self.gas,
-            'nonce': self.web3.eth.getTransactionCount(self.get_account())
+            'gas': self.gas
         }
         try:
             tx_hash = self.send_contract.functions.registerVendor().transact(parameters)
@@ -115,8 +104,7 @@ class Logger(Contract):
         parameters = {
             'from': self.account,
             'gasPrice': self.gas_price,
-            'gas': self.gas,
-            'nonce': self.web3.eth.getTransactionCount(self.get_account()) + 1
+            'gas': self.gas
         }
         try:
             tx_hash = self.send_contract.functions.registerProject().transact(parameters)
@@ -135,8 +123,7 @@ class Logger(Contract):
         parameters = {
             'from': self.account,
             'gasPrice': self.gas_price,
-            'gas': self.gas,
-            'nonce': self.web3.eth.getTransactionCount(self.get_account()) + 2
+            'gas': self.gas
         }
         hasher = Hasher(self.salt)
         to_chain_data = ParserClass.json_encode(raw_data)
@@ -145,7 +132,6 @@ class Logger(Contract):
 
         try:
             tx_hash = self.send_contract.functions.registerLog(project_id, to_chain_data).transact(parameters)
-
         except Exception as e:
             print(str(e))
             raise
