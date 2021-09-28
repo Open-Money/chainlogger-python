@@ -6,6 +6,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 VERSION = '0.0.1'
 DESCRIPTION = 'Log data into blockchain'
 LONG_DESCRIPTION = 'A package that register a project, vendor and a log into a selected blockchain.'
+URL = 'https://github.com/Open-Money/chainlogger-python'
 
 setup(
     name="chainlogger",
@@ -15,6 +16,7 @@ setup(
     description=DESCRIPTION,
     long_description=open('README.md').read(),
     long_description_content_type="text/markdown",
+    url=URL,
     packages=find_packages(),
     install_requires=['web3'],
     keywords=['python', 'blockchain', 'logging'],
