@@ -63,12 +63,10 @@ class TestCase:
 
     def test_register_vendor(self):
         tx_hash = self.logger.register_vendor()
-        tx_hash = self.logger.web3.toHex(tx_hash)
         print(tx_hash)
 
     def test_register_project(self):
         tx_hash = self.logger.register_project()
-        tx_hash = self.logger.web3.toHex(tx_hash)
         print(tx_hash)
 
 

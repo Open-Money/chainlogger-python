@@ -3,7 +3,7 @@ import os
 
 here = os.path.abspath(os.path.dirname(__file__))
 
-VERSION = '0.0.2'
+VERSION = '0.0.3'
 DESCRIPTION = 'Log data into blockchain'
 LONG_DESCRIPTION = 'A package that register a project, vendor and a log into a selected blockchain.'
 URL = 'https://github.com/Open-Money/chainlogger-python'

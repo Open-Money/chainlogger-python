@@ -93,7 +93,7 @@ class Logger(Contract):
             print(str(e))
             raise
 
-        return tx_hash
+        return self.web3.toHex(tx_hash)
 
     def register_project(self):
         """
@@ -112,7 +112,7 @@ class Logger(Contract):
             print(str(e))
             raise
 
-        return tx_hash
+        return self.web3.toHex(tx_hash)
 
     def register_log(self, project_id, raw_data):
         """
